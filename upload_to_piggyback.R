@@ -2,16 +2,21 @@
 
 install.packages("piggyback")
 
-Sys.setenv(GITHUB_TOKEN="6807c1c8f073215bc9416966295e67b951c3f8de")
+library("piggyback")
 
-pb_new_release("kaloisio/IPEDS_data", "v0.0.1")
+#Sys.setenv(GITHUB_TOKEN="6807c1c8f073215bc9416966295e67b951c3f8de")
+
+
+Sys.setenv(GITHUB_TOKEN="6a93bb0a77a874dd03e4ca3a69263108b54b8b3f")
+
+pb_new_release("kaloisio/IPEDS_data", "v0.0.2")
 
 
 readr::write_tsv(mtcars, "mtcars.tsv.gz")
 
 pb_upload("mtcars.tsv.gz", 
           repo = "kaloisio/IPEDS_data", 
-          tag = "v0.0.1")
+          tag = "v0.0.2")
 
 
 pb_delete(file = "mtcars.tsv.gz", 
