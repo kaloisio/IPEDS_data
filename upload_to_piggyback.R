@@ -2,6 +2,9 @@
 
 install.packages("piggyback")
 
+
+devtools::install_github("ropensci/piggyback")
+
 library("piggyback")
 
 #Sys.setenv(GITHUB_TOKEN="6807c1c8f073215bc9416966295e67b951c3f8de")
@@ -9,7 +12,9 @@ library("piggyback")
 
 Sys.setenv(GITHUB_TOKEN="6a93bb0a77a874dd03e4ca3a69263108b54b8b3f")
 
-pb_new_release("kaloisio/IPEDS_data", "v0.0.2")
+Sys.setenv(GITHUB_TOKEN="9f9f2246610a78466ff5d15fb0aa60427632a990")
+
+pb_new_release("kaloisio/IPEDS_data", "v0.0.3")
 
 
 readr::write_tsv(mtcars, "mtcars.tsv.gz")
@@ -26,8 +31,15 @@ pb_delete(file = "mtcars.tsv.gz",
 
 pb_download("mtcars.tsv.gz", 
             repo = "kaloisio/IPEDS_data",
-            tag = "v0.0.1",
-            dest = tempdir())
+            tag = "v0.0.2",
+            dest = "C:/Users/kaloisio/Desktop/",
+            .token="")
+
+
+
+
+
+
 
 
 test <- read.table(gzfile(paste0(tempdir(), "/mtcars.tsv.gz")))
